@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% block content %}
+<title>{% block title %} HOME {% endblock %}</title>
+    <h1>Biblioteka książek</h1>
+    <h1>&#128214</h1>
+<!--<h2>__________________________________________________________________</h2>-->
+<br><br>
+<input name="Tytuł"> Wpisz tytuł ksiąźki
+<br><br>
+<input name="Autor"> Wpisz autora książki
+<br><br>
+<input name="Kategoria">  Wpisz kategorie książki
+<br><br>
+<select name="Status">
+	<option >tak</option>
+	<option selected >nie</option>
+	<option>czytam</option>
+</select>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Przeczytana?
+
+<p>Podaj swój komentarz:</p>
+<textarea name="Komentarz" cols="50" rows="10">Proszę, wpisz tutaj jakiś komentarz...</textarea>
+<br><br><br>
+<input type="submit" value="Wyślij formularz">
+
+<input type="reset" value="Wyczyść dane">
+
+
+{% endblock %}
+
+
