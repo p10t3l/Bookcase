@@ -1,5 +1,7 @@
-from flask import Flask
+from flask import Flask, request
 from flask import render_template
+from flask_sqlalchemy import SQLAlchemy
+
 
 app = Flask(__name__, static_folder="static")
 
@@ -9,9 +11,18 @@ def home():
     return render_template('home.html')
 
 
-@app.route("/add_book")
+tasks = [
+    "Chemia śmierci",
+    "Zapisane w kościach"
+]
+
+
+@app.route("/add_book", methods=['GET', 'POST'])
 def add_book():
-    return render_template('add_book.html')
+    if request.method == 'POST':
+        tasks.append(request.form['task'])
+
+    return render_template('add_book.html', tasks=tasks)
 
 
 @app.route("/przeczytane")
@@ -22,6 +33,7 @@ def read():
 @app.route("/nie_przeczytane")
 def unread():
     return render_template('404.html')
+
 
 @app.route("/do_kupienia")
 def to_buy():
